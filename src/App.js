@@ -3,6 +3,7 @@ import ItemForm from './components/ItemForm';
 import SupplierForm from './components/SupplierForm';
 import Table from './components/Table';
 import { saveItemsSuppliers } from './components/services/api';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const App = () => {
@@ -20,16 +21,30 @@ const App = () => {
     };
 
     return (
-        <div>
-            <h1>Item & Supplier Form</h1>
-            <label>
-                <input type="checkbox" checked={itemChecked} onChange={() => setItemChecked(!itemChecked)} />
-                Item
-            </label>
-            <label>
-                <input type="checkbox" checked={supplierChecked} onChange={() => setSupplierChecked(!supplierChecked)} />
-                Supplier
-            </label>
+        <div className="container mt-5">
+            <h1 className="mb-4">Item & Supplier Form</h1>
+            
+            <div className="form-check">
+                <input 
+                    type="checkbox" 
+                    className="form-check-input" 
+                    id="itemCheckbox" 
+                    checked={itemChecked} 
+                    onChange={() => setItemChecked(!itemChecked)} 
+                />
+                <label className="form-check-label" htmlFor="itemCheckbox">Item</label>
+            </div>
+
+            <div className="form-check">
+                <input 
+                    type="checkbox" 
+                    className="form-check-input" 
+                    id="supplierCheckbox" 
+                    checked={supplierChecked} 
+                    onChange={() => setSupplierChecked(!supplierChecked)} 
+                />
+                <label className="form-check-label" htmlFor="supplierCheckbox">Supplier</label>
+            </div>
 
             {itemChecked && <ItemForm onSubmit={handleSubmit} />}
             {supplierChecked && <SupplierForm onSubmit={handleSubmit} />}

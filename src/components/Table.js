@@ -2,7 +2,7 @@ import React from 'react';
 
 const Table = ({ data }) => {
     return (
-        <table>
+        <table className="table table-striped">
             <thead>
                 <tr>
                     <th>Supplier</th>
